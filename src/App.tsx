@@ -19,7 +19,7 @@ function App() {
   };
 
   return (
-    <div className="">
+    <div className="min-h-screen">
     <Header />
     <HomePage />
     <Footer />
