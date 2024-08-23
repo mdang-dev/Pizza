@@ -3,6 +3,7 @@ import CardPizza from "../sections/CardPizza";
 import {Pizza} from "../models/pizza.model";
 import CountPizza from "../sections/CountPizza";
 import ButtonField from "../components/buttonField";
+import TextField from "../components/TextField";
 
 
 
@@ -36,6 +37,7 @@ const HomePage = () => {
   return (
     <>
       {console.log('Render Template !')}
+      <TextField placeholder="Enter Search" width="250px"/>
         <div className="flex flex-wrap justify-center items-center gap-8 my-10">
             {
                 pizzas.map(item => <CardPizza key={item.id} id={item.id} title={item.title} description={item.description} handleRemovePizza={handleRemovePizza}/>)
