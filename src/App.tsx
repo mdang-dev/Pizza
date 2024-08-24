@@ -4,27 +4,44 @@ import { useState } from "react";
 import Header from "./layouts/Header";
 import Footer from "./layouts/Footer";
 import HomePage from "./pages/HomePage";
+import { createBrowserRouter, Outlet, RouteObject, RouterProvider } from "react-router-dom";
+import MainLayout from "./layouts/MainLayout";
+import CreatePizzaPage from "./pages/CreatePizzaPage";
+import DetailPizzaPage from "./pages/DetailPizzaPage";
 
 function App() {
 
-  const [name, setName] = useState('Dag Dev');
-  const nameList = ['Dag Dev', '2024', 'www'];
-  const nameObj = {
-    name: 'Dag Dev',
-    old: 'Dag Dev',
-    email: 'minhdang25.dev@gmail.com'
-  }
-  const handleChangeName = () => {
-    setName('Dag Dev 2024');
-  };
+  const appRouters: RouteObject[] = [
+    {
+      path: '/',
+      element: <MainLayout />,
+      children: [
+        {
+          index: true,
+          element: <HomePage />
+        },
+        {
+          path: 'create-pizza',
+          element: <CreatePizzaPage />
+        },
+        {
+          path: '/pizza/:id',
+          element: <DetailPizzaPage />
+        }
+      ]
+    }
+  ];
 
-  return (
-    <div className="min-h-screen">
-    <Header />
-    <HomePage />
-    <Footer />
-    </div>
-  );
+  const router = createBrowserRouter([
+    {
+      element: (
+        <Outlet />
+      ),
+      children: appRouters,
+    }
+  ]);
+
+  return <RouterProvider router={router}/>
 }
 
 export default App;
