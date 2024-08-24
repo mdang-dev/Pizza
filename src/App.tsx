@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import CreatePizzaPage from "./pages/CreatePizzaPage";
+
 import Header from "./layouts/Header";
 import Footer from "./layouts/Footer";
 import HomePage from "./pages/HomePage";
