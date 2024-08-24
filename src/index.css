@@ -9,3 +9,25 @@
 .ct-text-field {
     @apply py-[0.8rem] px-4 bg-slate-200 border-none outline-none text-[#14274E] rounded font-Montserrat;
 };
+
+.ct-lds-ring {
+    @apply flex justify-center items-center relative w-[80%] h-[70vh];
+
+}
+
+.ct-lds-ring div {
+    @apply box-border block absolute w-16 h-16 m-2 border-solid border-8 border-[#14274e] rounded-[50%] animate-lds-ring border-t-[#14274e] border-x-[transparent] border-b-[transparent]; 
+}
+
+.ct-lds-ring:nth-child(1) {
+    @apply animation-delay-[-0.45s];
+}
+
+.ct-lds-ring:nth-child(2) {
+    @apply animation-delay-[-0.3s];
+}
+
+.ct-lds-ring:nth-child(3) {
+    @apply animation-delay-[-0.15s];
+}
+

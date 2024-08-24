@@ -1,3 +1,5 @@
+import { transform } from 'typescript';
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
@@ -8,7 +10,22 @@ export default {
     fontFamily: {
       Montserrat: ['Montserrat', 'sans-serif']
     },
+    keyframes: {
+      'lds-ring': {
+        '0%': {
+          transform: 'rotate(0deg)'
+        },
+        '100%': {
+          transform: 'rotate(360deg)'
+        }
+      }
+    },
+    animation: {
+      'lds-ring': 'lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite',
+    }
   },
-  plugins: [],
+  plugins: [
+    require("tailwindcss-animation-delay"),
+  ],
 }
 

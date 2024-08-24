@@ -7,8 +7,8 @@ type Props = Pizza & {
 
 const CardPizza = ({
     id,
-    title,
-    description,
+    productName,
+    price,
     handleRemovePizza 
 }: Props) => {
   return (
@@ -18,8 +18,8 @@ const CardPizza = ({
       </div>
       <div className="w-[300px] bg-slate-900 h-20 text-center grid items-center text-white">
         <div>
-          <div className="text-lg font-semibold">{title}</div>
-          <div className="text-lg font-semibold">{description}</div>
+          <div className="text-lg font-semibold">{productName}</div>
+          <div className="text-lg font-semibold">{price}</div>
         </div>
       </div>
     </div>
