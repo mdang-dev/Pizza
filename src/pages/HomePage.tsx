@@ -54,8 +54,10 @@ const HomePage = () => {
     fetch(`http://localhost:3000/products/home/pagination/?page=${page}`)
       .then((res) => res.json())
       .then(({ data }) => {
-        setIsLoading(false);
-        setPizzas([...pizzas, ...data]);
+        setTimeout(() => 
+        setIsLoading(false), 1000);
+        setTimeout(() =>
+        setPizzas([...pizzas, ...data]), 1000);
       });
   }, [page]);
 
@@ -83,7 +85,7 @@ const HomePage = () => {
             width="250px"
             onChange={handleSearchText}
           />
-          <div className="flex flex-wrap justify-center items-center gap-8 my-10">
+          <div className="flex flex-wrap justify-center items-center gap-12 my-10">
             {(searchText ? searchValue : pizzas || []).map((item) => (
               <CardPizza
                 key={item.id}
@@ -104,7 +106,7 @@ const HomePage = () => {
           </div>
           {/* <div ref={pageRef} className="text-red-400">Dag Dev</div>
                   <button onClick={() => {pageRef?.current?.setAttribute('class', 'text-red-900')}}>ChangeColor</button> */}
-          <div className="w-[100%] flex justify-center mb-8">
+          <div className="w-[100%] flex justify-center -mt-10">
             <ButtonField loading={isLoading} onClick={handleShowMore}>
               Show More
             </ButtonField>
