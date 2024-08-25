@@ -4,6 +4,7 @@ import ButtonField from "../components/buttonField";
 import { useEffect, useState } from "react";
 import { Pizza } from "../models/pizza.model";
 import { SpinnerLoad } from "../components/SpinnerLoad";
+import LoadingLayout from "../layouts/LoadingLayout";
 
 const DetailPizzaPage = () => {
   const { id } = useParams();
@@ -18,14 +19,8 @@ const DetailPizzaPage = () => {
   }, [id]);
 
   return (
-    <>
-      {!pizzas.id && (
-        <div className="flex justify-center items-center h-[100%]">
-          <SpinnerLoad />
-        </div>
-      )}
-
-      {pizzas.id && (
+    <LoadingLayout loading={!pizzas.id}>
+     
         <div className="grid items-center mt-auto w-[100%] py-16 px-64 h-[70vh]">
           <div className="flex items-center gap-x-8">
             <img src={LogoPizza} width="300px" height="300px" />
@@ -46,8 +41,8 @@ const DetailPizzaPage = () => {
             </div>
           </div>
         </div>
-      )}
-    </>
+    
+    </LoadingLayout>
   );
 };
 
