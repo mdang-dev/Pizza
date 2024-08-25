@@ -5,6 +5,8 @@ import CountPizza from "../sections/CountPizza";
 import ButtonField from "../components/buttonField";
 import TextField from "../components/TextField";
 import { SpinnerLoad } from "../components/SpinnerLoad";
+import LoadingLayout from "../layouts/LoadingLayout";
+
 
 const HomePage = () => {
   const [pizzas, setPizzas] = useState<Pizza[]>([]);
@@ -71,16 +73,9 @@ const HomePage = () => {
   }, [searchText, page]);
 
   return (
-    <>
-      {!pizzas.length && (
-        <div className="flex justify-center items-center h-[100%]">
-          <SpinnerLoad />
-        </div>
-      )}
-
-      {pizzas.length > 0 && (
+    <LoadingLayout loading={!pizzas.length}>
         <div>
-          <TextField
+        <TextField
             placeholder="Enter Search"
             width="250px"
             onChange={handleSearchText}
@@ -113,8 +108,8 @@ const HomePage = () => {
             {/* {count} */}
           </div>
         </div>
-      )}
-    </>
+      
+    </LoadingLayout>
   );
 };
 
